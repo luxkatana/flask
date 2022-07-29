@@ -11,7 +11,7 @@ def hello_world():
 @app.route("/api", methods=["POST"])
 def test_api():
     if request.method == "POST":
-        data = request.json
+        data = request.args
         print(data)
         return jsonify({"status": "data: {}".format(data["data"])})
 
