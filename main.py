@@ -13,7 +13,7 @@ def test_api():
     if request.method == "POST":
         data = request.args
         print(data)
-        return jsonify({"status": "data: {}".format(data["data"])})
+        return jsonify({"status": "data: {}".format(data.get("data"))})
 
 if __name__ == "__main__":
     app.run(debug=True, port=80)
