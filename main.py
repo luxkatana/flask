@@ -9,7 +9,7 @@ def hello_world():
 @app.route("/api", methods=["POST"])
 def test_api():
     if request.method == "POST":
-        print(data)
+        print(request.data)
 
         return jsonify({"status": "successfully printed data!"})
 
