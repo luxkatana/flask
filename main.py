@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
 from random import randint
-app = Flask(__name__)
+import psycopg2
 
+app = Flask(__name__)
+conn = None
 @app.route("/")
 def hello_world():
     return "<h> Zuyo Hub SS winning?</h>"
@@ -9,9 +11,10 @@ def hello_world():
 @app.route("/api", methods=["POST"])
 def test_api():
     if request.method == "POST":
-        print("The data is: {}".format(request.data.decode()))
-        return jsonify({"randNum": randint(1, 100)})
+        data = request.json
+        print(data)
+        return jsonify({"status": "data readed."})
 
 if __name__ == "__main__":
     app.run(debug=True, port=80)
-
+    # conn = psycopg2.connect()
