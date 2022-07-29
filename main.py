@@ -7,9 +7,10 @@ def hello_world():
     return "<h> Zuyo Hub SS winning?</h>"
 
 @app.route("/api", methods=["POST"])
-def test_api(data):
+def test_api():
     if request.method == "POST":
         print(data)
+
         return jsonify({"status": "successfully printed data!"})
 
 if __name__ == "__main__":
