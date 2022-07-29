@@ -11,9 +11,9 @@ def hello_world():
 @app.route("/api", methods=["POST"])
 def test_api():
     if request.method == "POST":
-        data = request.form
+        data = request.get_json()
         print(data)
-        return jsonify({"status": "data: {}".format(data.get("data"))})
+        return jsonify({"status": "data: {}".format(data['data'])})
 
 if __name__ == "__main__":
     app.run(debug=True, port=80)
